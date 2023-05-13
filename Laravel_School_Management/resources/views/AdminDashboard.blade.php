@@ -1,8 +1,15 @@
-<x-app-layout>
+<x-AdminLayout>
     <x-slot name="header">
         <main slot="main">
             <br>
             <br>
 Admiiiin
 
-</x-app-layout>
+
+
+<table>
+    <td>
+    </td>
+</table>
+
+</x-AdminLayout>
