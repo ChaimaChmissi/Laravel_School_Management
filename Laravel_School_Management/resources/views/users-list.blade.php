@@ -18,6 +18,15 @@
 </head>
 <body>
     <h1>Users List</h1>
+    @if (session('success'))
+    <div class="alert alert-success" style="width: 50%">
+        {{ session('success') }}
+    </div>
+@elseif (session('error'))
+    <div class="alert alert-danger" style="width: 50%">
+        {{ session('error') }}
+    </div>
+@endif
 
  
 </body>
@@ -26,7 +35,7 @@
 
 
 <table class="table">
-    <thead class="table-dark">
+  <thead class="thead-custom">
       <th>User Name</th>
       <th>user Email</th>
       <th>user password</th>
@@ -40,9 +49,90 @@
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
       <td>{{ $user->password }}</td>
- @endforeach
+      <td>
+        <div style="display: flex; gap: 10px;">
+          <button onclick="event.preventDefault();
+                  document.getElementById('add-student-form-{{ $user->id }}').submit();">
+            Add as Student
+          </button>
+
+          <form id="add-student-form-{{ $user->id }}" action="{{ url('/add-student/' . $user->id) }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+
+                <button onclick="event.preventDefault();
+                document.getElementById('add-teacher-form-{{ $user->id }}').submit();">
+          Add as Teacher
+        </button>
+
+        <form id="add-teacher-form-{{ $user->id }}" action="{{ url('/add-teacher/' . $user->id) }}" method="POST" style="display: none;">
+          @csrf
+        </form>
+        </div>
+      </td>
     </tbody>
-  </table>
+@endforeach
+</table>
+
+
+
  
 </x-AdminLayout>
 
+
+<style>
+  table {
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 22.95px;
+    text-align: start;
+    letter-spacing: normal;
+    color: #697a8d;
+    background-color: #ffffff;
+    box-shadow: rgba(67, 89, 113, 0.12) 0px 2px 6px 0px;
+    border-radius: 8px;
+    width:100%;
+  
+    align-items: center;
+  
+    margin: auto;
+  
+  bottom: 50px;
+  }
+  
+  .thead-custom {
+    background-color: #AF8FE9; /* Change the background color to your desired color */
+   color: white;   
+  }
+  
+  
+  h1 {
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 35pxx;
+    text-align: center;
+    letter-spacing: normal;
+    color: #566a7f;
+    background-color: #ffffff;
+    
+    color: #AF8FE9;
+  
+    
+  }
+  
+button
+{
+  padding: 7px 10px;
+                         font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+                         font-size: 15px;
+                         line-height: 22.95px;
+                         text-align: center;
+                         align-items: center;
+                         letter-spacing: normal;
+                         color: #ffffff;
+                         background-color: #696cff;
+                         box-shadow: rgba(105, 108, 255, 0.4) 0px 2px 4px 0px;
+                         border-radius: 6px;
+                         "
+}
+  
+  </style>

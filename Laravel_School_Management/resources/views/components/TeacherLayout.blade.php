@@ -46,17 +46,14 @@
        
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="/Courses">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Courses</span>
+                <li><a href="/upload-courses">
+                    <i class="uil uil-upload"></i>
+                    <span class="link-name">  Upload Courses</span>
                 </a></li>
                
-                <li><a href="#">
-                    <i class="uil uil-book-reader"></i>
-                    <span class="link-name">Teachers List</span>
-                </a></li>
+              
 
-                <li><a href="/Courses">
+                <li><a >
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Classes</span>
                 </a></li>
@@ -101,7 +98,7 @@
                 
             
             <div class="flex items-center">
-                <img src="{{ asset('images/profile.jpg') }}" alt="Logo" style="padding-right:10px ">
+                <img src="{{ asset('images/profil.jpg') }}" alt="Logo" style="padding-right:10px ">
                 <span>{{ Auth::user()->name }}</span>
             </div>
             

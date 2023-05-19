@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Classe;
+use App\Models\Student;
+
 
 
 class ClassController extends Controller
@@ -85,10 +87,36 @@ return view('classes-list', ['classes' => $classes]);
     
        return redirect()->back()->with('success', 'Class Added successfully');
     }
+
     
+
+    //Assign Students to class
+
+public function assignStudents()
+{
+    $students = Student::all();
+    $classes = Classe::all();
+
+    return view('assign-class', compact('students', 'classes'));
+}
     
+public function storeStudent(Request $request)
+{
+    $studentIds = $request->input('student_id');
+    $classIds = $request->input('class_id');
+
+    foreach ($studentIds as $key => $studentId) {
+        $student = Student::findOrFail($studentId);
+        $student->class_id = $classIds[$key];
+        $student->save();
     }
+
+    return redirect()->back()->with('success', 'Students assigned successfully.');
+}
+ 
+    
     
 
 
 
+}

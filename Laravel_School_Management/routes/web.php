@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\CourseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,10 @@ Route::get('/TeacherDashboard', function () {
 
 Route::get('/students-list', function () {
     return view('students-list');
+});
+
+Route::get('/Courses', function () {
+    return view('Courses');
 });
 
 
@@ -110,8 +116,31 @@ Route::get('/add-class', [ClassController::class, 'addClass']);
 
 Route::post('/save-class', [ClassController::class, 'saveClass']);
 
-//Assign subject to class
 
-Route::get('/subject-class', function () {
-    return view('subject-class');
-});
+
+
+
+
+//Users
+Route::post('/add-student/{id}', [UserController::class, 'addStudent']);
+Route::post('/add-teacher/{id}', [UserController::class, 'addTeacher']);
+
+//Profile 
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'editProfile'])->name('profile.edit');
+Route::post('/profile', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
+
+
+// Assign Class to Student
+Route::get('/assign-class', [ClassController::class, 'assignStudents'])->name('assignClass');
+
+// Assign students to class page
+Route::get('/assign-students', [ClassController::class, 'assignStudents'])->name('assignStudents');
+
+// Store assigned student
+Route::post('/store-student', [ClassController::class, 'storeStudent'])->name('storeStudent');
+
+
+//Courses Upload
+Route::get('upload-courses', [CourseController::class, 'create'])->name('courses.create');
+Route::post('upload-courses', [CourseController::class, 'store'])->name('courses.store');
+

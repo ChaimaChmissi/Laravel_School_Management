@@ -31,7 +31,7 @@
             <input type="name" class="form-control" name="name" value="{{ $subject->name }}">
         </div>
         <div> 
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Add</button>
             <a href="{{ url('subjects-list')}}">Back to Subjects List</a>
           </div>
           

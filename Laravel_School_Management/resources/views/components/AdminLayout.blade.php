@@ -78,9 +78,9 @@
                     <span class="link-name">Classes</span>
                 </a></li>
 
-                <li><a href="/subject-class">
+                <li><a href="/assign-class">
                     <i class="uil uil-subject"></i>
-                    <span class="link-name">Assign Subject To Class</span>
+                    <span class="link-name">Assign Class To Student</span>
                 </a></li>
 <li>
                     <a href="{{ route('logout') }}"
@@ -123,7 +123,7 @@
                 
             
             <div class="flex items-center">
-                <img src="{{ asset('images/profile.jpg') }}" alt="Logo" style="padding-right:10px ">
+                <img src="{{ asset('images/profil.jpg') }}" alt="Logo" style="padding-right:10px ">
                 <span>{{ Auth::user()->name }}</span>
             </div>
             

@@ -45,30 +45,14 @@
         </div>
        
         <div class="menu-items">
-            <ul class="nav-links">
-                <li><a href="/dashboard">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name"  >Dahsboard</span>
-                </a></li>
-                <li><a href="/Courses">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Courses</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-trophy"></i>
-                    <span class="link-name">Results</span>
-                </a></li>
-               
-                <li><a href="#">
-                    <i class="uil uil-book-reader"></i>
-                    <span class="link-name">Teachers List</span>
-                </a></li>
+          
+               <ul>
+              
 
-                <li><a href="/profile">
-                    <i class="uil uil-user-circle"></i>
-                    <span class="link-name">profile</span>
+                <li><a href="">
+                    <i class="uil uil-home"></i>
+                    <span class="link-name">Dashboard</span>
                 </a></li>
-
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();

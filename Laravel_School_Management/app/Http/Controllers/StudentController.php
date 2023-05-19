@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Course;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,9 @@ class StudentController extends Controller
 
         // Pass the list of students to the view
         return view('students.index', ['students' => $students]);
+        
 */
+
    $students =Student::get();
 return view('students-list', ['students' => $students]);
 
@@ -60,4 +63,7 @@ public function deleteStudent($id)
 
     return redirect()->back()->with('success', 'Student deleted successfully');
 }
+
+
+
 }
